@@ -2,7 +2,9 @@ import React from "react"
 import "./Task.css"
 
 import Radio from "@material-ui/core/Radio"
-import {FormControlLabel} from "@material-ui/core";
+import {FormControlLabel} from "@material-ui/core"
+import {IconButton} from "@material-ui/core"
+import {RestoreFromTrashOutlined, RestoreOutlined} from "@material-ui/icons";
 
 function Task({model, isCompleted = false, onComplete = _ => {}}) {
     const {title} = model
@@ -24,10 +26,13 @@ export function PendingTask({model, onComplete = _ => {}}) {
     )
 }
 
-export function CompletedTask({model}) {
+export function CompletedTask({model, onRestore = _ => {}}) {
     return (
-        <li>
+        <li className="completed-task">
             <Task model={model} isCompleted={true} />
+            <IconButton color="primary" onClick={onRestore}>
+                <RestoreOutlined />
+            </IconButton>
         </li>
     )
 }
