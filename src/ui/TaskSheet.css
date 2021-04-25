@@ -1,0 +1,25 @@
+.task-sheet {
+    display: inline-block;
+    margin: 16px;
+    padding: 16px;
+    width: 320px;
+}
+
+.task-sheet > header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-sheet > .pending-tasks {
+    margin-top: 16px;
+}
+
+.task-sheet > .show-completed-button {
+    padding: 12px;
+    justify-content: space-between;
+    margin-top: 16px;
+    width: 100%;
+    border-radius: 8px;
+}
