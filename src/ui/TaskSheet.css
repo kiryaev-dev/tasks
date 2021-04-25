@@ -15,3 +15,11 @@
 .task-sheet > .pending-tasks {
     margin-top: 16px;
 }
+
+.task-sheet > .show-completed-button {
+    padding: 12px;
+    justify-content: space-between;
+    margin-top: 16px;
+    width: 100%;
+    border-radius: 8px;
+}
