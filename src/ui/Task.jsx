@@ -12,6 +12,7 @@ function Task({model, isCompleted = false, onComplete = _ => {}}) {
         control={<Radio />}
         label={title}
         onClick={onComplete}
+        disabled={isCompleted}
         checked={isCompleted} />
 }
 
@@ -19,6 +20,14 @@ export function PendingTask({model, onComplete = _ => {}}) {
     return (
         <li>
             <Task model={model} onComplete={onComplete} />
+        </li>
+    )
+}
+
+export function CompletedTask({model}) {
+    return (
+        <li>
+            <Task model={model} isCompleted={true} />
         </li>
     )
 }
