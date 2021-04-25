@@ -3,3 +3,22 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.task {
+    padding-left: 12px;
+}
+
+.container {
+    display: flex;
+    justify-content: start !important;
+    align-items: center !important;
+    width: 100%;
+}
+
+.container > .icon {
+    padding: 10px;
+}
+
+.container > .hint {
+    opacity: 0.7;
+}

@@ -4,3 +4,14 @@
     padding: 16px;
     width: 320px;
 }
+
+.task-sheet > header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-sheet > .pending-tasks {
+    margin-top: 16px;
+}

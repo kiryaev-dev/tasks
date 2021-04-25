@@ -3,7 +3,7 @@ import "./TaskSheet.css"
 
 import Card from "@material-ui/core/Card"
 import {Divider, List, Typography} from "@material-ui/core"
-import {PendingTask} from "./Task"
+import {AddingTask, PendingTask} from "./Task"
 
 export default function TaskSheet({model}) {
     const {title} = model
@@ -18,15 +18,23 @@ export default function TaskSheet({model}) {
         updateState()
     }
 
+    function add(task) {
+        model.pending.add(task)
+        updateState()
+    }
+
     return (
         <Card className="task-sheet" elevation={1}>
-            <Typography variant="h6">{title}</Typography>
+            <header>
+                <Typography variant="h5">{title}</Typography>
+            </header>
             <Divider />
-            <List>
+            <List className="pending-tasks">
                 {
                     pending.map((task, index) =>
                         <PendingTask model={task} key={index} onComplete={_ => complete(task)} />)
                 }
+                <AddingTask onAdd={add} />
             </List>
         </Card>
     )
