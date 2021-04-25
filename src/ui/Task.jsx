@@ -13,3 +13,12 @@ function Task({model, isCompleted = false}) {
         label={title}
         checked={isCompleted} />
 }
+
+export function PendingTask({model}) {
+    return (
+        <li>
+            <Task model={model} />
+        </li>
+    )
+}
+
