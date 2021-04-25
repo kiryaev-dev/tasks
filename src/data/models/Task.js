@@ -1,7 +1,7 @@
 
 export default class Task {
-    constructor(title) {
-        this.title = title
+    constructor(message) {
+        this.title = message
         this.created = Date.now()
     }
 }
