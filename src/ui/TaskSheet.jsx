@@ -2,10 +2,43 @@ import React, {useState} from "react"
 import "./TaskSheet.css"
 
 import Card from "@material-ui/core/Card"
-import {Divider, List, Typography} from "@material-ui/core"
+import {Divider, IconButton, List, Menu, MenuItem, Typography} from "@material-ui/core"
 import {AddingTask, CompletedTask, PendingTask} from "./Task"
+import {MoreVertOutlined} from "@material-ui/icons";
 
-export default function TaskSheet({model}) {
+function SheetMenuButton({onRemove = _ => {}}) {
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    function openMenu(event) {
+        setAnchorEl(event.currentTarget)
+    }
+
+    function closeMenu() {
+        setAnchorEl(null)
+    }
+
+    function remove() {
+        closeMenu()
+        onRemove()
+    }
+
+    return (
+        <>
+            <IconButton aria-haspopup={true} onClick={openMenu}>
+                <MoreVertOutlined />
+            </IconButton>
+            <Menu
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={closeMenu} >
+                <MenuItem onClick={remove}>Remove</MenuItem>
+            </Menu>
+        </>
+    )
+}
+
+export default function TaskSheet({model, onRemove = _ => {}}) {
     const {title} = model
     const [pending, setPending] = useState(Array.from(model.pending))
     const [completed, setCompleted] = useState(Array.from(model.completed))
@@ -41,6 +74,7 @@ export default function TaskSheet({model}) {
         <Card className="task-sheet" elevation={1}>
             <header>
                 <Typography variant="h5">{title}</Typography>
+                <SheetMenuButton onRemove={onRemove} />
             </header>
             <Divider />
             <List className="pending-tasks">
