@@ -4,6 +4,7 @@ import "./Task.css"
 import Radio from "@material-ui/core/Radio"
 import {FormControlLabel} from "@material-ui/core"
 import {IconButton} from "@material-ui/core"
+import {RestoreOutlined} from "@material-ui/icons";
 
 function Task({model, isCompleted = false, onComplete = _ => {}}) {
     const {title} = model
