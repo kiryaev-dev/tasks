@@ -71,7 +71,7 @@ export default function TaskSheet({model, onRemove = _ => {}}) {
     )
 
     return (
-        <Card className="task-sheet" elevation={1}>
+        <Card className="task-sheet" variant="outlined">
             <header>
                 <Typography variant="h5">{title}</Typography>
                 <SheetMenuButton onRemove={onRemove} />
