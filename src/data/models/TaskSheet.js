@@ -1,10 +1,12 @@
 import Task from "./Task"
+import {v4 as generateUUID} from "uuid"
 
 export default class TaskSheet {
     constructor(title) {
         this.title = title
         this.pending = new Set()
         this.completed = new Set()
+        this.uuid = generateUUID()
     }
 
     complete(task) {

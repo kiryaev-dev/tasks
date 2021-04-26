@@ -63,15 +63,15 @@ export default function TaskSheet({model, onRemove = _ => {}}) {
             <Divider />
             <List>
                 {
-                    completed.map((task, index) =>
-                        <CompletedTask model={task} key={index} onComplete={_ => complete(task)} />)
+                    completed.map(task =>
+                        <CompletedTask model={task} key={task.uuid} onComplete={_ => complete(task)} />)
                 }
             </List>
         </>
     )
 
     return (
-        <Card className="task-sheet" elevation={1}>
+        <Card className="task-sheet" variant="outlined">
             <header>
                 <Typography variant="h5">{title}</Typography>
                 <SheetMenuButton onRemove={onRemove} />
@@ -79,8 +79,8 @@ export default function TaskSheet({model, onRemove = _ => {}}) {
             <Divider />
             <List className="pending-tasks">
                 {
-                    pending.map((task, index) =>
-                        <PendingTask model={task} key={index} onComplete={_ => complete(task)} />)
+                    pending.map(task =>
+                        <PendingTask model={task} key={task.uuid} onComplete={_ => complete(task)} />)
                 }
                 <AddingTask onAdd={add} />
             </List>

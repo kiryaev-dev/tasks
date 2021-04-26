@@ -1,0 +1,40 @@
+.application {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.application > .add-sheet-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+}
+
+.application > .add-sheet-button .icon {
+    margin-right: 8px;
+}
+
+.application .scroll-view {
+}
+
+.application .sheets-layout {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.application .sheets-layout > li {
+    list-style: none;
+    padding: 24px 12px;
+}
+
+.application .sheets-layout > li:first-child {
+    padding-left: 24px;
+}
+
+.application .sheets-layout > li:last-child {
+    padding-right: 24px;
+}
