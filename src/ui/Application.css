@@ -3,3 +3,13 @@
     height: 100vh;
     overflow: hidden;
 }
+
+.application > .add-sheet-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+}
+
+.application > .add-sheet-button .icon {
+    margin-right: 8px;
+}
