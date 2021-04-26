@@ -27,13 +27,10 @@ export function PendingTask({model, onComplete = _ => {}}) {
     )
 }
 
-export function CompletedTask({model, onRestore = _ => {}}) {
+export function CompletedTask({model}) {
     return (
         <li className="completed-task">
             <Task model={model} isCompleted={true} />
-            <IconButton color="primary" onClick={onRestore}>
-                <RestoreOutlined />
-            </IconButton>
         </li>
     )
 }

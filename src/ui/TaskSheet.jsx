@@ -41,11 +41,9 @@ function SheetMenuButton({onRemove = _ => {}}) {
 export default function TaskSheet({model, onRemove = _ => {}}) {
     const {title} = model
     const [pending, setPending] = useState(Array.from(model.pending))
-    const [completed, setCompleted] = useState(Array.from(model.completed))
 
     function updateState() {
         setPending(Array.from(model.pending))
-        setCompleted(Array.from(model.completed))
     }
 
     function complete(task) {
@@ -57,18 +55,6 @@ export default function TaskSheet({model, onRemove = _ => {}}) {
         model.pending.add(task)
         updateState()
     }
-
-    const CompletedList = (
-        <>
-            <Divider />
-            <List>
-                {
-                    completed.map(task =>
-                        <CompletedTask model={task} key={task.uuid} onComplete={_ => complete(task)} />)
-                }
-            </List>
-        </>
-    )
 
     return (
         <Card className="task-sheet" variant="outlined">
@@ -84,7 +70,6 @@ export default function TaskSheet({model, onRemove = _ => {}}) {
                 }
                 <AddingTask onAdd={add} />
             </List>
-            {completed.length > 0 ? CompletedList : undefined}
         </Card>
     )
 }
