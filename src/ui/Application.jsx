@@ -33,7 +33,7 @@ export default function Application() {
             <ul className="sheets-layout">
                 {
                     sheets.map(it => (
-                        <li>
+                        <li key={it.uuid}>
                             <TaskSheet
                                 model={it}
                                 onRemove={_ => remove(it)} />
